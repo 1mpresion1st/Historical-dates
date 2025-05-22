@@ -7,6 +7,7 @@ module.exports = {
     path: path.resolve(__dirname, 'dist'),
     filename: 'bundle.js',
     clean: true,
+    publicPath: '/',
   },
   module: {
     rules: [
@@ -29,9 +30,8 @@ module.exports = {
             options: {
               modules: {
                 mode: 'local',
-                auto: true,
+                localIdentName: '[name]__[local]--[hash:base64:5]',
                 exportLocalsConvention: 'camelCase',
-                localIdentName: '[path][name]__[local]--[hash:base64:5]',
               },
             },
           },
@@ -52,10 +52,14 @@ module.exports = {
   },
   resolve: {
     extensions: ['.tsx', '.ts', '.js', '.scss'],
+    alias: {
+      '@': path.resolve(__dirname, 'src'), // Алиас для удобных импортов
+    },
   },
   plugins: [
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, 'public/index.html'),
+      // favicon: path.resolve(__dirname, 'public/favicon.ico'),
     }),
   ],
   devServer: {
