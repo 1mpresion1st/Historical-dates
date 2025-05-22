@@ -1,3 +1,44 @@
 .root {
-  color: aqua;
+  margin: 0 auto;
+  max-width: 1440px;
+  height: 100lvh;
+  position: relative;
+}
+.backgroundBars { 
+
+  .leftBar {
+    position: absolute;
+    left: 0;
+    width: 1px;
+    height: 100%;
+    background-color: #42567A;
+    opacity: 0.1;
+  }
+  
+  .rightBar {
+    position: absolute;
+    right: 0;
+    width: 1px;
+    height: 100%;
+    background-color: #42567A;
+    opacity: 0.1;
+  }
+  
+  .middleBar {
+    position: absolute;
+    right: 50%;
+    width: 1px;
+    height: 100%;
+    background-color: #42567A;
+    opacity: 0.1;
+  }
+  
+  .crossBar {
+    position: absolute;
+    top: 480px;
+    width: 100%;
+    height: 1px;
+    background-color: #42567A;
+    opacity: 0.1;
+  }
 }

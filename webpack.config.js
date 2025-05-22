@@ -20,7 +20,6 @@ module.exports = {
         test: /\.css$/,
         use: ['style-loader', 'css-loader'],
       },
-      // Правило для SCSS-Modules (.module.scss)
       {
         test: /\.module\.scss$/,
         use: [
@@ -28,17 +27,12 @@ module.exports = {
           {
             loader: 'css-loader',
             options: {
-              modules: {
-                mode: 'local',
-                localIdentName: '[name]__[local]--[hash:base64:5]',
-                exportLocalsConvention: 'camelCase',
-              },
+              modules: true,
             },
           },
           'sass-loader',
         ],
       },
-      // Правило для обычных SCSS-файлов (без modules)
       {
         test: /\.scss$/,
         exclude: /\.module\.scss$/,
@@ -59,7 +53,6 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, 'public/index.html'),
-      // favicon: path.resolve(__dirname, 'public/favicon.ico'),
     }),
   ],
   devServer: {

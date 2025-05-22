@@ -1,17 +1,19 @@
 import { Typography } from "../../components/Typography/Typography";
-import styles from './Main.module.scss'; // Проверьте путь!
+const styles = require('./Main.module.scss');
 
 interface MainPageProps {
   testProp: string;
 }
 
 export const MainPage = ({ testProp }: MainPageProps) => {
-  console.log('Styles object:', styles); // Должен вывести объект с классами
   return (
     <div className={styles.root}>
-      <Typography variant="h1" color="black" align="center">
-        {testProp}
-      </Typography>
+      <div className={styles.backgroundBars}>
+        <div className={styles.leftBar}></div>
+        <div className={styles.rightBar}></div>
+        <div className={styles.middleBar}></div>
+        <div className={styles.crossBar}></div>
+      </div>
     </div>
   );
 };
