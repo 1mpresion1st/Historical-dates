@@ -19,8 +19,29 @@ module.exports = {
         test: /\.css$/,
         use: ['style-loader', 'css-loader'],
       },
+      // Правило для SCSS-Modules (.module.scss)
+      {
+        test: /\.module\.scss$/,
+        use: [
+          'style-loader',
+          {
+            loader: 'css-loader',
+            options: {
+              modules: {
+                mode: 'local',
+                auto: true,
+                exportLocalsConvention: 'camelCase',
+                localIdentName: '[path][name]__[local]--[hash:base64:5]',
+              },
+            },
+          },
+          'sass-loader',
+        ],
+      },
+      // Правило для обычных SCSS-файлов (без modules)
       {
         test: /\.scss$/,
+        exclude: /\.module\.scss$/,
         use: ['style-loader', 'css-loader', 'sass-loader'],
       },
       {
@@ -30,7 +51,7 @@ module.exports = {
     ],
   },
   resolve: {
-    extensions: ['.tsx', '.ts', '.js'],
+    extensions: ['.tsx', '.ts', '.js', '.scss'],
   },
   plugins: [
     new HtmlWebpackPlugin({

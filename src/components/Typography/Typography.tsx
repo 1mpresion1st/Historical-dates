@@ -125,7 +125,7 @@ const StyledTypography = styled.div<TypographyProps>`
   overflow: ${({ noWrap }) => noWrap && 'hidden'};
   text-overflow: ${({ noWrap }) => noWrap && 'ellipsis'};
   ${({ sx }) => sx && ({ ...sx })};
-  font-family: inherit;
+  font-family: PT Sans, sans-serif;
     `;
     
     export const Typography: React.FC<TypographyProps> = ({
