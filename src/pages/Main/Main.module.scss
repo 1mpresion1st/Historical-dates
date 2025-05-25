@@ -3,42 +3,79 @@
   max-width: 1440px;
   height: 100lvh;
   position: relative;
-}
-.backgroundBars { 
 
-  .leftBar {
+.title {
+  padding-left: 80px;
+  margin-top: 170px;
+  width: 500px;
+  position: absolute;
+  
+  &:before {
+    content: '';
     position: absolute;
     left: 0;
-    width: 1px;
-    height: 100%;
-    background-color: #42567A;
-    opacity: 0.1;
-  }
-  
-  .rightBar {
-    position: absolute;
-    right: 0;
-    width: 1px;
-    height: 100%;
-    background-color: #42567A;
-    opacity: 0.1;
-  }
-  
-  .middleBar {
-    position: absolute;
-    right: 50%;
-    width: 1px;
-    height: 100%;
-    background-color: #42567A;
-    opacity: 0.1;
-  }
-  
-  .crossBar {
-    position: absolute;
-    top: 480px;
-    width: 100%;
-    height: 1px;
-    background-color: #42567A;
-    opacity: 0.1;
+    top: 0;
+    height: 120px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 5px;
+    background: linear-gradient(180deg, #3877EE -5%, #EF5DA8 85%);
   }
 }
+
+  .backgroundBars { 
+  
+    .leftBar {
+      position: absolute;
+      left: 0;
+      width: 1px;
+      height: 100%;
+      background-color: #42567A;
+      opacity: 0.1;
+    }
+    
+    .rightBar {
+      position: absolute;
+      right: 0;
+      width: 1px;
+      height: 100%;
+      background-color: #42567A;
+      opacity: 0.1;
+    }
+    
+    .middleBar {
+      position: absolute;
+      right: 50%;
+      width: 1px;
+      height: 100%;
+      background-color: #42567A;
+      opacity: 0.1;
+    }
+    
+    .crossBar {
+      position: absolute;
+      top: 480px;
+      width: 100%;
+      height: 1px;
+      background-color: #42567A;
+      opacity: 0.1;
+    }
+  }
+
+  .spinner {
+    z-index: 100;
+    position: absolute;
+    top: 215px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .years {
+    position: absolute;
+    top: 44%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+}
+
+

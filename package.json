@@ -17,7 +17,8 @@
     "react-dom": "^19.1.0",
     "styled-components": "^6.1.18",
     "swiper": "^11.2.7",
-    "typescript-plugin-css-modules": "^5.1.0"
+    "typescript-plugin-css-modules": "^5.1.0",
+    "zustand": "^5.0.5"
   },
   "devDependencies": {
     "@types/react": "^19.1.5",
@@ -29,6 +30,7 @@
     "sass-loader": "^16.0.5",
     "style-loader": "^4.0.0",
     "ts-loader": "^9.5.2",
+    "tsconfig-paths-webpack-plugin": "^4.2.0",
     "typescript": "^5.8.3",
     "webpack": "^5.99.9",
     "webpack-cli": "^6.0.1",

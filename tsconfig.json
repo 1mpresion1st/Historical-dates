@@ -14,7 +14,15 @@
     "isolatedModules": true,
     "noEmit": false,
     "jsx": "react-jsx",
-    "types": ["styled-components"]
+    "types": ["styled-components"],
+    "baseUrl": ".",
+    "paths": {
+      "@src/*": ["src/*"],
+      "@components/*": ["src/components/*"],
+      "@store/*": ["src/store/*"],
+      "@pages/*": ["src/pages/*"],
+      "@constants/*": ["src/constants/*"]
+    }
   },
   "include": ["src"]
 }

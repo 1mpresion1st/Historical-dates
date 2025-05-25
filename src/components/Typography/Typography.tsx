@@ -2,19 +2,11 @@ import styled, { css } from 'styled-components';
 import React, { JSX } from 'react';
 
 export type TextVariant =
-  | 'h1'
-  | 'h2'
-  | 'h3'
-  | 'h4'
-  | 'h5'
-  | 'h6'
-  | 'body1'
-  | 'body2'
-  | 'subtitle1'
-  | 'subtitle2'
-  | 'button'
-  | 'caption'
-  | 'overline';
+  | 'XL'
+  | 'LG'
+  | 'MD'
+  | 'SM'
+  | 'XS';
 
 export interface TypographyProps {
   variant?: TextVariant;
@@ -28,96 +20,39 @@ export interface TypographyProps {
   underline?: boolean;
   textTransform?: 'none' | 'capitalize' | 'uppercase' | 'lowercase';
   sx?: React.CSSProperties;
+  className?: string;
+  lineheight?: number | string;
+  ref?: React.Ref<HTMLDivElement>;
 }
 
 const variantStyles = (variant: TextVariant) => {
   const styles = {
-    h1: css`
-      font-size: 2.5rem;
-      line-height: 1.2;
-      font-weight: 700;
-      margin: 0 0 0.67em;
+    XL: css`
+      font-size: 200px;
     `,
-    h2: css`
-      font-size: 2rem;
-      line-height: 1.3;
-      font-weight: 600;
-      margin: 0 0 0.83em;
+    LG: css`
+      font-size: 56px;
     `,
-    h3: css`
-      font-size: 1.75rem;
-      line-height: 1.4;
-      font-weight: 600;
-      margin: 0 0 1em;
+    MD: css`
+      font-size: 25px;
     `,
-    h4: css`
-      font-size: 1.5rem;
-      line-height: 1.5;
-      font-weight: 600;
-      margin: 0 0 1.33em;
+    SM: css`
+      font-size: 20px;
     `,
-    h5: css`
-      font-size: 1.25rem;
-      line-height: 1.6;
-      font-weight: 600;
-      margin: 0 0 1.67em;
-    `,
-    h6: css`
-      font-size: 1rem;
-      line-height: 1.7;
-      font-weight: 600;
-      margin: 0 0 1.75em;
-    `,
-    body1: css`
-      font-size: 1rem;
-      line-height: 1.5;
-      margin: 0 0 0.5em;
-    `,
-    body2: css`
-      font-size: 0.875rem;
-      line-height: 1.43;
-      margin: 0 0 0.57em;
-    `,
-    subtitle1: css`
-      font-size: 1rem;
-      line-height: 1.75;
-      font-weight: 500;
-      margin: 0 0 0.5em;
-    `,
-    subtitle2: css`
-      font-size: 0.875rem;
-      line-height: 1.57;
-      font-weight: 500;
-      margin: 0 0 0.57em;
-    `,
-    button: css`
-      font-size: 0.875rem;
-      line-height: 1.75;
-      font-weight: 500;
-      text-transform: uppercase;
-      margin: 0;
-    `,
-    caption: css`
-      font-size: 0.75rem;
-      line-height: 1.66;
-      margin: 0;
-    `,
-    overline: css`
-      font-size: 0.75rem;
-      line-height: 2.66;
-      text-transform: uppercase;
-      margin: 0;
+    XS: css`
+      font-size: ;
     `,
   };
 
-  return styles[variant];
+  return styles[variant as TextVariant];
 };
 
 const StyledTypography = styled.div<TypographyProps>`
-  ${({ variant = 'body1' }) => variantStyles(variant)};
+  ${({ variant = 'body1' }) => variantStyles(variant as TextVariant)};
   color: ${({ color }) => color || 'inherit'};
   text-align: ${({ align }) => align};
   font-weight: ${({ fontWeight }) => fontWeight};
+  line-height: ${({ lineheight }) => lineheight};
   text-decoration: ${({ underline }) => (underline ? 'underline' : 'none')};
   text-transform: ${({ textTransform }) => textTransform};
   margin-bottom: ${({ marginBottom }) => marginBottom && '0.5rem'};
@@ -125,13 +60,14 @@ const StyledTypography = styled.div<TypographyProps>`
   overflow: ${({ noWrap }) => noWrap && 'hidden'};
   text-overflow: ${({ noWrap }) => noWrap && 'ellipsis'};
   ${({ sx }) => sx && ({ ...sx })};
-  font-family: PT Sans, sans-serif;
+  font-family: "PT Sans", sans-serif;
     `;
     
     export const Typography: React.FC<TypographyProps> = ({
   variant = 'body1',
   component,
   children,
+  ref,
   ...props
 }) => {
   const defaultComponent = variant.startsWith('h') 
@@ -140,6 +76,7 @@ const StyledTypography = styled.div<TypographyProps>`
 
   return (
     <StyledTypography
+      ref={ref}
       variant={variant}
       as={component || defaultComponent}
       {...props}

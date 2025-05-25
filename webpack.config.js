@@ -1,5 +1,6 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const TsconfigPathsPlugin = require('tsconfig-paths-webpack-plugin');
 
 module.exports = {
   entry: path.resolve(__dirname, 'src/index.tsx'),
@@ -27,7 +28,12 @@ module.exports = {
           {
             loader: 'css-loader',
             options: {
-              modules: true,
+              modules: {
+                mode: 'local',
+                auto: true,
+                exportLocalsConvention: 'camelCase',
+                localIdentName: '[local]__[hash:base64:5]',
+              },
             },
           },
           'sass-loader',
@@ -47,8 +53,13 @@ module.exports = {
   resolve: {
     extensions: ['.tsx', '.ts', '.js', '.scss'],
     alias: {
-      '@': path.resolve(__dirname, 'src'), // Алиас для удобных импортов
+      '@src': path.resolve(__dirname, 'src/'),
+      '@components': path.resolve(__dirname, 'src/components/'),
+      '@store': path.resolve(__dirname, 'src/store/'),
+      '@pages': path.resolve(__dirname, 'src/pages/'),
+      '@constants': path.resolve(__dirname, 'src/constants/'),
     },
+    plugins: [new TsconfigPathsPlugin()]
   },
   plugins: [
     new HtmlWebpackPlugin({
