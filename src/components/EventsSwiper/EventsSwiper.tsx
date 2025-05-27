@@ -4,7 +4,7 @@ import { FreeMode, Navigation } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-import { eventsData } from "@constants/constants";
+import { eventsData } from "@src/shared/constants/constants";
 import { Typography } from "../Typography/Typography";
 import { useIndexToggler } from "@hooks/useIndexToggler";
 import useScreenSize from "@src/shared/hooks/useScreenSize";

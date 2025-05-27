@@ -1,7 +1,7 @@
 import Spinner from "@components/Spinner/Spinner";
 import { Typography } from "@components/Typography/Typography";
 import Years from "@components/Years/Years";
-import { YEARS_LABELS, SPINNER_LABELS } from "@constants/constants";
+import { YEARS_LABELS, SPINNER_LABELS } from "@src/shared/constants/constants";
 import { SectionsToggler } from "@components/SectionsToggler/SectionsToggler";
 import { useIndexToggler } from "@hooks/useIndexToggler";
 import EventsSwiper from "@components/EventsSwiper/EventsSwiper";
