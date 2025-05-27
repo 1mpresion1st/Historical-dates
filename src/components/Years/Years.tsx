@@ -1,5 +1,6 @@
 import { AnimatedNumber } from "@components/AnimatedNumber/AnimatedNumber";
-const styles = require('./Years.module.scss');
+const styles = require("./Years.module.scss");
+import { useScreenSize } from "@hooks/useScreenSize";
 
 interface YearsProps {
   className?: string;
@@ -7,20 +8,21 @@ interface YearsProps {
   year2: number;
 }
 
-export const Years = ({ year1, year2, className }: YearsProps) => {``
+export const Years = ({ year1, year2, className }: YearsProps) => {
+  const { isMobile } = useScreenSize();
   return (
-    <div className={styles.root + ' ' + className}>
-      <AnimatedNumber 
+    <div className={styles.root + " " + className}>
+      <AnimatedNumber
         value={year1}
         variant="XL"
-        color="#5d5fef"
-        lineheight={'160px'}
-        />
-      <AnimatedNumber 
+        color="#3877EE"
+        lineheight={isMobile ? "1" : "160px"}
+      />
+      <AnimatedNumber
         value={year2}
         variant="XL"
         color="#ef5da8"
-        lineheight={'160px'}
+        lineheight={isMobile ? "1" : "160px"}
       />
     </div>
   );

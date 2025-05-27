@@ -1,26 +1,26 @@
-import { useEffect, useRef } from 'react';
-import { gsap } from 'gsap';
-import { Typography, TypographyProps } from '@components/Typography/Typography';
-const styles = require('./AnimatedNumber.module.scss');
+import { useEffect, useRef } from "react";
+import { gsap } from "gsap";
+import { Typography, TypographyProps } from "@components/Typography/Typography";
+const styles = require("./AnimatedNumber.module.scss");
 
-interface AnimatedNumberProps extends Omit<TypographyProps, 'children'> {
+interface AnimatedNumberProps extends Omit<TypographyProps, "children"> {
   value: number;
 }
 
-export const AnimatedNumber = ({ 
+export const AnimatedNumber = ({
   value,
-  variant = 'MD',
+  variant = "MD",
   color,
   align,
   fontWeight,
-  marginBottom,
+  addMarginBottom,
   noWrap,
   component,
   underline,
   textTransform,
   sx,
   className,
-  lineheight
+  lineheight,
 }: AnimatedNumberProps) => {
   const elementRef = useRef<HTMLDivElement>(null);
   const previousValueRef = useRef<number>(value);
@@ -33,14 +33,16 @@ export const AnimatedNumber = ({
       duration: 1,
       textContent: value,
       snap: { textContent: 1 },
-      onUpdate: function() {
+      onUpdate: function () {
         if (element) {
-          element.textContent = Math.floor(Number(this.targets()[0].textContent)).toString();
+          element.textContent = Math.floor(
+            Number(this.targets()[0].textContent)
+          ).toString();
         }
       },
       onStart: () => {
         element.textContent = previousValueRef.current.toString();
-      }
+      },
     });
 
     previousValueRef.current = value;
@@ -57,14 +59,16 @@ export const AnimatedNumber = ({
       color={color}
       align={align}
       fontWeight={fontWeight}
-      marginBottom={marginBottom}
+      addMarginBottom={addMarginBottom}
       noWrap={noWrap}
       component={component}
       underline={underline}
       textTransform={textTransform}
       sx={sx}
-      className={`${styles.root} ${className || ''}`}
-      lineheight={lineheight} children={undefined}    />
+      className={`${styles.root} ${className || ""}`}
+      lineheight={lineheight}
+      children={undefined}
+    />
   );
 };
 

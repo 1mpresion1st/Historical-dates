@@ -21,7 +21,8 @@
       "@components/*": ["src/components/*"],
       "@store/*": ["src/store/*"],
       "@pages/*": ["src/pages/*"],
-      "@constants/*": ["src/constants/*"]
+      "@constants/*": ["src/constants/*"],
+      "@hooks/*": ["src/shared/hooks/*"]
     }
   },
   "include": ["src"]

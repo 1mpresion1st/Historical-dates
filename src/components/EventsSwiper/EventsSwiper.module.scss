@@ -1,0 +1,74 @@
+.root {
+  position: relative;
+  width: 100%;
+  animation: fadeIn 0.5s ease-in-out;
+}
+
+.swiper {
+  animation: fadeIn 0.5s ease-out;
+  width: 90%;
+
+  @media (max-width: 768px) {
+    width: 100%;
+  }
+}
+
+.card {
+  user-select: none;
+  max-width: 400px;
+  margin: 0 auto;
+
+  @media (max-width: 768px) {
+    margin-left: 20px;
+  }
+}
+
+.arrow {
+  position: absolute;
+  z-index: 100;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0px 0px 15px 2px #3877EE1A;
+  cursor: pointer;
+  z-index: 10;
+
+
+  &.prev {
+    left: 12px;
+  }
+  
+  &.next {
+    right: 12px;
+  }
+  
+  &:hover {
+    background: #f8f8f8;
+  }
+  
+  svg {
+    color: #3877EE;
+    width: 24px;
+    height: 24px;
+  }
+}
+
+:global(.swiper-button-disabled) {
+  opacity: 0;
+  pointer-events: none;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}

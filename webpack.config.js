@@ -58,6 +58,7 @@ module.exports = {
       '@store': path.resolve(__dirname, 'src/store/'),
       '@pages': path.resolve(__dirname, 'src/pages/'),
       '@constants': path.resolve(__dirname, 'src/constants/'),
+      '@hooks': path.resolve(__dirname, 'src/shared/hooks/'),
     },
     plugins: [new TsconfigPathsPlugin()]
   },
